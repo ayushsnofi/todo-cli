@@ -1,5 +1,7 @@
 package todocli
 
-func main(){
-	
+import "todo-cli/cmd"
+
+func main() {
+	cmd.Execute()
 }
