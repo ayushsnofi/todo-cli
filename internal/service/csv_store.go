@@ -10,6 +10,20 @@ type TaskService struct {
 	Store *storage.CSVStore
 }
 
+var defaultService = &TaskService{
+	Store: &storage.CSVStore{
+		FilePath: "tasks.csv",
+	},
+}
+
+func AddTask(title string) error {
+	return defaultService.AddTask(title)
+}
+
+func ListTasks() ([]model.Task, error) {
+	return defaultService.ListTasks()
+}
+
 func (s *TaskService) AddTask(title string) error {
 	tasks, _:= s.Store.ReadTasks()
 
